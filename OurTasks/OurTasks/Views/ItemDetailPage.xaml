@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OurTasks.ItemDetailPage">
+
+    <StackLayout Spacing="20"
+                 Padding="15">
+
+        <Label Text="Name"
+               FontSize="Medium" />
+        <Entry Text="{Binding Item.Text}"
+               FontSize="Medium" />
+
+        <Picker x:Name="LocationPicker" 
+                Title="Location" 
+                SelectedIndexChanged="OnLocationPickerSelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Home</x:String>
+                <x:String>Work</x:String>
+                <x:String>Other</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Picker x:Name="PeoplePicker" 
+                Title="Assigned to" 
+                SelectedIndexChanged="OnPeoplePickerSelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Robert</x:String>
+                <x:String>Colette</x:String>
+                <x:String>Nobody</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Due"
+               FontSize="Medium" />
+        <DatePicker HorizontalOptions="Start"
+                    Date="{Binding Item.DueDate}" />
+
+        <Button Text="Save"
+                HorizontalOptions="Start"
+                Margin="25,0,0,25"
+                WidthRequest="150"
+                HeightRequest="50"
+                Clicked="OnSaveClicked" />
+        <Button Text="Finished"
+                HorizontalOptions="Start"
+                Margin="25,0,0,25"
+                WidthRequest="150"
+                HeightRequest="50"
+                Clicked="OnCompletedClicked" />
+
+    </StackLayout>
+    
+</ContentPage>
